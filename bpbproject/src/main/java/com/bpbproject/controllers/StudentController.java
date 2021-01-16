@@ -5,6 +5,7 @@ import java.util.UUID;
 
 import javax.validation.Valid;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -23,11 +24,16 @@ import com.bpbproject.exceptions.StudentServiceException;
 import com.bpbproject.model.Student;
 import com.bpbproject.model.request.StudentRequest;
 import com.bpbproject.model.request.UpdateStudentRequest;
+import com.bpbproject.studentservice.StudentService;
 
 @RestController
 @RequestMapping("/students")
 public class StudentController {
 	Map<String, Student> studentMap;
+	
+	@Autowired
+    StudentService studentService;
+
 	private static final String PATH = "/hello";
 
 	@GetMapping
@@ -68,18 +74,8 @@ public class StudentController {
 			produces= {MediaType.APPLICATION_XML_VALUE,MediaType.APPLICATION_JSON_VALUE})
 	public ResponseEntity<Student> createStudent(@Valid @RequestBody StudentRequest studentRequest) {
 		
-		Student studentResponse = new Student();
-		studentResponse.setFirstName(studentRequest.getFirstName());
-		studentResponse.setLastName(studentRequest.getLastName());
-		studentResponse.setEmail(studentRequest.getEmail());
+		Student studentResponse = studentService.createStudent(studentRequest);
 		
-		String userId=UUID.randomUUID().toString();
-		studentResponse.setUserId(userId);
-		if (studentMap==null) {
-			studentMap = new HashMap<>();
-			studentMap.put(userId, studentResponse);
-			
-		}
 		return new ResponseEntity<Student>(studentResponse, HttpStatus.OK);
 
 		
