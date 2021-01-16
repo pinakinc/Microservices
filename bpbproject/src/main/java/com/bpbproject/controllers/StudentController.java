@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.bpbproject.exceptions.StudentServiceException;
 import com.bpbproject.model.Student;
 import com.bpbproject.model.request.StudentRequest;
 import com.bpbproject.model.request.UpdateStudentRequest;
@@ -37,10 +38,12 @@ public class StudentController {
 	@GetMapping(path="/{userId}", produces= {MediaType.APPLICATION_XML_VALUE,MediaType.APPLICATION_JSON_VALUE})
 	public ResponseEntity<Student> getStudent(@PathVariable String userId) {
 		
-		String firstName=null;
+//		String firstName=null;
 		
-		@SuppressWarnings("unused")
-		int firstNameLength = firstName.length();
+//		@SuppressWarnings("unused")
+//		int firstNameLength = firstName.length();
+		
+		if (true) throw new StudentServiceException("A student service exception was thrown");
 		
 		if (studentMap.containsKey(userId)) {
 			return new ResponseEntity<>(studentMap.get(userId), HttpStatus.OK);
