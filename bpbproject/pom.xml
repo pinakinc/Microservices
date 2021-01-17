@@ -75,7 +75,7 @@ https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
         <configuration>
-            <mainClass>mainrunner.ApplicationClass</mainClass>
+            <mainClass>ApplicationClass</mainClass>
         </configuration>
 
         <executions>
