@@ -78,15 +78,24 @@ https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind
             <mainClass>mainrunner.ApplicationClass</mainClass>
         </configuration>
 
-<!--         <executions>
+        <executions>
             <execution>
                 <goals>
                     <goal>repackage</goal>
                 </goals>
             </execution>
        </executions>
- -->
+
 </plugin>
+<!--    <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.1</version>
+        <configuration>
+          <source>1.8</source>
+          <target>1.8</target>
+        </configuration>
+      </plugin>-->
 </plugins>
-</build>
+ </build>
 </project>
