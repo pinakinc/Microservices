@@ -95,7 +95,7 @@ https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind
           <source>1.8</source>
           <target>1.8</target>
         </configuration>
-      </plugin>-->
-</plugins>
+      </plugin>
+ --></plugins>
  </build>
 </project>

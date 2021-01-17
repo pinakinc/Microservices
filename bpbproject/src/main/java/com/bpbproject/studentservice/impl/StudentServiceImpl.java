@@ -25,7 +25,6 @@ public class StudentServiceImpl implements StudentService{
 		this.utils = utils;
 	}
 
-	@Override
 	public Student createStudent(StudentRequest studentRequest) {
 		// TODO Auto-generated method stub
 		
@@ -39,7 +38,7 @@ public class StudentServiceImpl implements StudentService{
 		String userId=utils.generateUserId();
 		studentResponse.setUserId(userId);
 		if (studentMap==null) {
-			studentMap = new HashMap<>();
+			studentMap = new HashMap<String, Student>();
 			studentMap.put(userId, studentResponse);
 			
 		}
